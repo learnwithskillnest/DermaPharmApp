@@ -1,0 +1,42 @@
+{
+  "name": "glowderma-store",
+  "version": "0.1.0",
+  "private": true,
+  "description": "GlowDerma Store — skincare, cosmetology and regulated pharmacy e-commerce for India",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "tsx scripts/build.ts --assets-only && tsx watch --clear-screen=false src/server/index.ts",
+    "build": "tsx scripts/build.ts",
+    "start": "node dist/server.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "db:seed": "tsx scripts/seed.ts",
+    "db:reset": "tsx scripts/reset-db.ts",
+    "admin:create": "tsx scripts/create-admin.ts",
+    "test": "tsx --test --test-concurrency=1 --test-timeout=120000 tests/unit/*.test.ts tests/integration/*.test.ts",
+    "test:unit": "tsx --test tests/unit/*.test.ts",
+    "test:integration": "tsx --test --test-concurrency=1 tests/integration/*.test.ts",
+    "test:e2e": "playwright test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "security:check": "tsx scripts/security-check.ts",
+    "validate": "npm run typecheck && npm test && npm run build && npm run test:e2e && npm run security:check"
+  },
+  "dependencies": {
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "26.2.0",
+    "esbuild": "0.28.2",
+    "playwright": "1.56.0",
+    "prettier": "3.8.1",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.23.12",
+    "typescript": "6.0.3"
+  }
+}

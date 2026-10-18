@@ -1,0 +1,478 @@
+@import 'tailwindcss';
+
+/*
+ * GlowDerma design tokens.
+ * White ground, mint washes, forest ink, champagne used only for hairlines
+ * and the formula seal. One family (Hanken Grotesk) carries the voice through
+ * weight and size; numerals are tabular wherever prices or strengths appear.
+ */
+@theme {
+  --font-sans: 'Hanken Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+
+  --color-paper: #ffffff;
+  --color-mint-50: #f3faf6;
+  --color-mint-100: #e6f4ec;
+  --color-mint-200: #d4eddf;
+  --color-mint-300: #b3dcc6;
+  --color-forest-500: #3f7a61;
+  --color-forest-600: #2c5f4a;
+  --color-forest-700: #214c3b;
+  --color-forest-800: #1a3f31;
+  --color-forest-900: #163a2d;
+  --color-ink: #18211d;
+  --color-muted: #55635c;
+  --color-line: #dde7e1;
+  --color-champagne-200: #ede3cc;
+  --color-champagne-400: #cdb784;
+  --color-champagne-500: #bfa46a;
+  --color-champagne-700: #806a38;
+  --color-danger: #b42318;
+  --color-danger-50: #fef3f2;
+  --color-warning: #8a5a00;
+  --color-warning-50: #fff8e6;
+  --color-success: #1f6b45;
+
+  --radius-pill: 999px;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    color: var(--color-ink);
+    background: var(--color-paper);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+  main {
+    flex: 1;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-forest-900);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    font-weight: 650;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-forest-600);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  ::selection {
+    background: var(--color-mint-200);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (width >= 48rem) {
+    .wrap {
+      padding-inline: 2rem;
+    }
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 100;
+    background: var(--color-forest-900);
+    color: white;
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Buttons — the primary is the only filled control on a screen. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0.6rem 1.25rem;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition:
+      background-color 0.15s,
+      border-color 0.15s,
+      color 0.15s;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn:disabled,
+  .btn[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .btn-primary {
+    background: var(--color-forest-900);
+    color: white;
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: var(--color-forest-700);
+  }
+  .btn-secondary {
+    background: white;
+    color: var(--color-forest-900);
+    border-color: var(--color-forest-900);
+  }
+  .btn-secondary:hover:not(:disabled) {
+    background: var(--color-mint-50);
+  }
+  .btn-quiet {
+    background: transparent;
+    color: var(--color-forest-800);
+    padding-inline: 0.75rem;
+  }
+  .btn-quiet:hover {
+    background: var(--color-mint-100);
+  }
+  .btn-danger {
+    background: white;
+    color: var(--color-danger);
+    border-color: color-mix(in oklab, var(--color-danger) 45%, white);
+  }
+  .btn-danger:hover {
+    background: var(--color-danger-50);
+  }
+  .btn-sm {
+    min-height: 2.25rem;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.875rem;
+  }
+  .btn-block {
+    width: 100%;
+  }
+
+  .link {
+    color: var(--color-forest-700);
+    text-decoration: underline;
+    text-decoration-color: var(--color-mint-300);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+  }
+  .link:hover {
+    text-decoration-color: var(--color-forest-700);
+  }
+
+  /* Forms */
+  .field {
+    display: grid;
+    gap: 0.35rem;
+  }
+  .label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-forest-900);
+  }
+  .hint {
+    font-size: 0.825rem;
+    color: var(--color-muted);
+  }
+  .input,
+  .select,
+  .textarea {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.55rem 0.8rem;
+    border: 1.5px solid var(--color-line);
+    border-radius: 0.6rem;
+    background: white;
+    color: var(--color-ink);
+    font: inherit;
+  }
+  .textarea {
+    min-height: 6.5rem;
+  }
+  .input:hover,
+  .select:hover,
+  .textarea:hover {
+    border-color: var(--color-mint-300);
+  }
+  .input:focus,
+  .select:focus,
+  .textarea:focus {
+    outline: none;
+    border-color: var(--color-forest-600);
+    box-shadow: 0 0 0 3px var(--color-mint-200);
+  }
+  .input[aria-invalid='true'],
+  .select[aria-invalid='true'],
+  .textarea[aria-invalid='true'] {
+    border-color: var(--color-danger);
+  }
+  .error-text {
+    color: var(--color-danger);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .check {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    font-size: 0.925rem;
+  }
+  .check input {
+    width: 1.15rem;
+    height: 1.15rem;
+    margin-top: 0.2rem;
+    accent-color: var(--color-forest-700);
+    flex: none;
+  }
+
+  /* Notices */
+  .notice {
+    border-radius: 0.75rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--color-line);
+    background: var(--color-mint-50);
+    font-size: 0.925rem;
+  }
+  .notice-error {
+    background: var(--color-danger-50);
+    border-color: color-mix(in oklab, var(--color-danger) 30%, white);
+    color: #7a1a12;
+  }
+  .notice-warning {
+    background: var(--color-warning-50);
+    border-color: #f1d9a6;
+    color: #5c3d00;
+  }
+  .notice-success {
+    background: var(--color-mint-100);
+    border-color: var(--color-mint-300);
+    color: var(--color-forest-900);
+  }
+
+  /* Formula label: the signature element. A specimen tag with the key active and strength. */
+  .formula {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    padding: 0.2rem 0.6rem 0.25rem;
+    border: 1px solid var(--color-champagne-400);
+    border-radius: 0.35rem;
+    background: white;
+    color: var(--color-forest-900);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .formula b {
+    font-weight: 750;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-champagne-700);
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: var(--radius-pill);
+    padding: 0.15rem 0.65rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    background: var(--color-mint-100);
+    color: var(--color-forest-800);
+  }
+  .pill-rx {
+    background: #fff4e5;
+    color: #7a4a00;
+  }
+  .pill-muted {
+    background: #eef1ef;
+    color: var(--color-muted);
+  }
+  .pill-danger {
+    background: var(--color-danger-50);
+    color: var(--color-danger);
+  }
+  .pill-sample {
+    background: transparent;
+    border: 1px dashed var(--color-champagne-500);
+    color: var(--color-champagne-700);
+  }
+
+  .rule {
+    border: 0;
+    border-top: 1px solid var(--color-line);
+  }
+
+  /* Data tables (cart, admin) */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.925rem;
+  }
+  .table th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-muted);
+    font-size: 0.8rem;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--color-line);
+    white-space: nowrap;
+  }
+  .table td {
+    padding: 0.7rem 0.75rem;
+    border-bottom: 1px solid var(--color-line);
+    vertical-align: top;
+  }
+  .table tr:hover td {
+    background: var(--color-mint-50);
+  }
+
+  .prose-gd {
+    max-width: 68ch;
+    color: var(--color-ink);
+  }
+  .prose-gd h2 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 0.6rem;
+  }
+  .prose-gd h3 {
+    font-size: 1.1rem;
+    margin-top: 1.4rem;
+    margin-bottom: 0.4rem;
+  }
+  .prose-gd p,
+  .prose-gd ul,
+  .prose-gd ol {
+    margin-bottom: 0.9rem;
+  }
+  .prose-gd ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+  .prose-gd ol {
+    list-style: decimal;
+    padding-left: 1.25rem;
+  }
+  .prose-gd li {
+    margin-bottom: 0.3rem;
+  }
+  .prose-gd a {
+    color: var(--color-forest-700);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Product art sits on a mint ground; no drop shadows anywhere. */
+  .art {
+    background: var(--color-mint-50);
+    border-radius: 1rem;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+  }
+  .art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* The hero ingredient index: strengths set large as typographic specimens. */
+  .active-index a {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr auto;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--color-line);
+    text-decoration: none;
+    color: var(--color-forest-900);
+  }
+  .active-index a:hover .active-name {
+    text-decoration: underline;
+    text-decoration-color: var(--color-champagne-500);
+    text-underline-offset: 4px;
+  }
+  .active-strength {
+    font-size: 2.25rem;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-forest-700);
+    line-height: 1;
+  }
+  .active-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .reveal {
+    animation: reveal 0.7s var(--ease-out-soft) both;
+  }
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* <details> based disclosure used for mobile nav and filters (works without JS). */
+  .disclosure > summary {
+    list-style: none;
+    cursor: pointer;
+  }
+  .disclosure > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 60;
+    background: var(--color-forest-900);
+    color: white;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.925rem;
+    animation: reveal 0.25s var(--ease-out-soft) both;
+  }
+}

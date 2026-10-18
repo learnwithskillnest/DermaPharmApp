@@ -1,0 +1,44 @@
+# Local development stack: PostgreSQL + the app (sandbox payments).
+#   docker compose up -d db
+#   docker compose run --rm app node dist/migrate.mjs
+#   docker compose run --rm app node dist/seed.mjs
+#   docker compose up app
+# NOT for production as-is: change every password and secret, use managed Postgres with TLS.
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: glowderma
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me-local-only}
+      POSTGRES_DB: glowderma_dev
+    ports:
+      - '127.0.0.1:5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U glowderma']
+      interval: 5s
+      retries: 10
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      NODE_ENV: development
+      APP_URL: http://localhost:3000
+      DATABASE_URL: postgres://glowderma:${POSTGRES_PASSWORD:-change-me-local-only}@db:5432/glowderma_dev
+      SESSION_SECRET: ${SESSION_SECRET:?set SESSION_SECRET in your shell or .env}
+      PAYMENT_PROVIDER: sandbox
+      SANDBOX_PAYMENT_SECRET: ${SANDBOX_PAYMENT_SECRET:?set SANDBOX_PAYMENT_SECRET}
+      MAIL_DRIVER: database
+      ENABLE_PRESCRIPTION_ORDERING: 'false'
+    ports:
+      - '127.0.0.1:3000:3000'
+    volumes:
+      - rxdata:/data/prescriptions
+
+volumes:
+  pgdata:
+  rxdata:

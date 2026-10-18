@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" font-family="Hanken Grotesk, Segoe UI, Arial, sans-serif">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3f6f8"/><stop offset="1" stop-color="#dfe8ee"/></linearGradient>
+<linearGradient id="gl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0.25"/><stop offset="0.35" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.12"/></linearGradient></defs>
+<rect width="400" height="500" fill="url(#bg)"/>
+<circle cx="330" cy="70" r="110" fill="#fff" opacity="0.35"/>
+<ellipse cx="200" cy="448" rx="65" ry="10" fill="#000" opacity="0.07"/><path d="M138 70 h124 l-12 330 h-100 z" fill="#ffffff" stroke="#dfe8ee" stroke-width="2"/><rect x="138" y="62" width="124" height="14" rx="3" fill="#dfe8ee"/><rect x="168" y="400" width="64" height="48" rx="8" fill="#a7c0cf"/>
+<text x="200" y="162" font-size="10" letter-spacing="2" font-weight="700" fill="#1f4e6b" text-anchor="middle">SAMPLE PHARMA CO.</text>
+<line x1="178" x2="222" y1="172" y2="172" stroke="#a7c0cf" stroke-width="1.5"/>
+<text x="200" y="206" font-size="30" font-weight="300" fill="#173a50" text-anchor="middle">0.025%</text>
+<text x="200" y="228" font-size="13" font-weight="600" fill="#173a50" text-anchor="middle">Tretinoin</text>
+<text x="200" y="244" font-size="13" font-weight="600" fill="#173a50" text-anchor="middle">Cream</text>
+<rect x="166" y="254" width="68" height="18" rx="9" fill="#8a1c1c"/><text x="200" y="267" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">Rx ONLY</text>
+<text x="200" y="486" font-size="10" letter-spacing="1.5" fill="#173a50" opacity="0.55" text-anchor="middle">SAMPLE IMAGE · NOT ACTUAL PRODUCT</text>
+</svg>

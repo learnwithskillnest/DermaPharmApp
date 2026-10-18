@@ -1,0 +1,8 @@
+dist
+node_modules
+storage
+public/images
+test-results
+playwright-report
+scratch
+*.md

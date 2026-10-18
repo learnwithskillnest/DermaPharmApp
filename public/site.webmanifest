@@ -1,0 +1,15 @@
+{
+  "name": "GlowDerma Store",
+  "short_name": "GlowDerma",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#163a2d",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

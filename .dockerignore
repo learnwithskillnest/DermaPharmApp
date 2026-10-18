@@ -1,0 +1,10 @@
+node_modules
+dist
+.env
+.env.*
+storage
+test-results
+playwright-report
+scratch
+.git
+*.log

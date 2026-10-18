@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" font-family="Hanken Grotesk, Segoe UI, Arial, sans-serif">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7f2e6"/><stop offset="1" stop-color="#ede3cc"/></linearGradient>
+<linearGradient id="gl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0.25"/><stop offset="0.35" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.12"/></linearGradient></defs>
+<rect width="400" height="500" fill="url(#bg)"/>
+<circle cx="330" cy="70" r="110" fill="#fff" opacity="0.35"/>
+<ellipse cx="200" cy="448" rx="70" ry="10" fill="#000" opacity="0.07"/><rect x="186" y="56" width="28" height="56" rx="14" fill="#2b2b2b" opacity="0.85"/><rect x="174" y="108" width="52" height="48" rx="6" fill="#bfa46a"/><rect x="134" y="152" width="132" height="296" rx="26" fill="#a8742c" opacity="0.92"/><rect x="134" y="152" width="132" height="296" rx="26" fill="url(#gl)"/>
+<text x="200" y="252" font-size="10" letter-spacing="2" font-weight="700" fill="#f3e7c9" text-anchor="middle">KESARA BOTANICS</text>
+<line x1="178" x2="222" y1="262" y2="262" stroke="#bfa46a" stroke-width="1.5"/>
+<text x="200" y="296" font-size="30" font-weight="300" fill="#fffaf0" text-anchor="middle">10%</text>
+<text x="200" y="318" font-size="13" font-weight="600" fill="#fffaf0" text-anchor="middle">Vitamin C</text>
+<text x="200" y="334" font-size="13" font-weight="600" fill="#fffaf0" text-anchor="middle">Face Serum</text>
+<text x="200" y="486" font-size="10" letter-spacing="1.5" fill="#163a2d" opacity="0.55" text-anchor="middle">SAMPLE IMAGE · NOT ACTUAL PRODUCT</text>
+</svg>

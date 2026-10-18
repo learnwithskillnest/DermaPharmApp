@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" font-family="Hanken Grotesk, Segoe UI, Arial, sans-serif">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7f2e6"/><stop offset="1" stop-color="#ede3cc"/></linearGradient>
+<linearGradient id="gl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0.25"/><stop offset="0.35" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.12"/></linearGradient></defs>
+<rect width="400" height="500" fill="url(#bg)"/>
+<circle cx="330" cy="70" r="110" fill="#fff" opacity="0.35"/>
+<ellipse cx="200" cy="448" rx="115" ry="10" fill="#000" opacity="0.07"/><rect x="96" y="214" width="208" height="56" rx="12" fill="#bfa46a"/><rect x="88" y="262" width="224" height="186" rx="30" fill="#ffffff" stroke="#ede3cc" stroke-width="2"/>
+<text x="200" y="304" font-size="10" letter-spacing="2" font-weight="700" fill="#163a2d" text-anchor="middle">KESARA BOTANICS</text>
+<line x1="178" x2="222" y1="314" y2="314" stroke="#bfa46a" stroke-width="1.5"/>
+<text x="200" y="336" font-size="13" font-weight="600" fill="#163a2d" text-anchor="middle">Hydrating Night Cream</text>
+<text x="200" y="486" font-size="10" letter-spacing="1.5" fill="#163a2d" opacity="0.55" text-anchor="middle">SAMPLE IMAGE · NOT ACTUAL PRODUCT</text>
+</svg>
